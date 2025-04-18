@@ -13,14 +13,14 @@ https://github.com/Faizanfarhad/Email-Spam-Detection.git
 ```
 2. Download uv using 
  ```bash
- pip install uv
+pip install uv
  ``` 
 3. Install dependencies using **Uv**
-   ```bash
-   uv install 
-   ```
+```bash
+uv install 
+```
 
 5. Run file using  uv
-   ```bash
-    uv run app.py
-   ``` 
+```bash
+uv run app.py
+``` 
