@@ -11,8 +11,11 @@ It detects spam messages based on their content using TF-IDF vectorization and a
 ```bash
 https://github.com/Faizanfarhad/Email-Spam-Detection.git
 ```
-2. Download uv using :
+2. Download uv using 
  ```bash
  pip install uv
  ``` 
-3. run uv 
+3. Run file using  uv
+   ```bash
+    run app.py
+   ``` 
