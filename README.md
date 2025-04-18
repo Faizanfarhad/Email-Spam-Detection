@@ -1,0 +1,19 @@
+# Spam Detection with Logistic Regression
+
+A simple spam detection model built from scratch using logistic regression (no scikit-learn).  
+It detects spam messages based on their content using TF-IDF vectorization and a custom ML model.
+
+
+
+## How to Run
+
+1. Clone the repo
+```bash
+
+
+    
+```
+2. Download uv using : ```bash
+ pip install uv
+ ``` 
+3. run uv 
