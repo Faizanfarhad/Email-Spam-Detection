@@ -22,5 +22,5 @@ https://github.com/Faizanfarhad/Email-Spam-Detection.git
 
 5. Run file using  uv
    ```bash
-    run app.py
+    uv run app.py
    ``` 
