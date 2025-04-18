@@ -13,7 +13,8 @@ It detects spam messages based on their content using TF-IDF vectorization and a
 
     
 ```
-2. Download uv using : ```bash
+2. Download uv using :
+ ```bash
  pip install uv
  ``` 
 3. run uv 
