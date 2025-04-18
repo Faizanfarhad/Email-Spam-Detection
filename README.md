@@ -15,7 +15,12 @@ https://github.com/Faizanfarhad/Email-Spam-Detection.git
  ```bash
  pip install uv
  ``` 
-3. Run file using  uv
+3. Install dependencies using **Uv**
+   ```bash
+   uv install 
+   ```
+
+5. Run file using  uv
    ```bash
     run app.py
    ``` 
