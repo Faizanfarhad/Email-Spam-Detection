@@ -9,9 +9,7 @@ It detects spam messages based on their content using TF-IDF vectorization and a
 
 1. Clone the repo
 ```bash
-
-
-    
+https://github.com/Faizanfarhad/Email-Spam-Detection.git
 ```
 2. Download uv using :
  ```bash
