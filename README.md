@@ -1,6 +1,6 @@
 # Spam Detection with Logistic Regression
 
-A simple spam detection model built from scratch using logistic regression (no scikit-learn).  
+A simple spam detection model built from scratch using logistic regression (little bit scikit-learn).  
 It detects spam messages based on their content using TF-IDF vectorization and a custom ML model.
 
 
