@@ -3,7 +3,9 @@
 A simple spam detection model built from scratch using logistic regression (little bit scikit-learn).  
 It detects spam messages based on their content using TF-IDF vectorization and a custom ML model.
 
+# Accuracy
 
+It has Accuracy of 95 percent 
 
 ## How to Run
 
