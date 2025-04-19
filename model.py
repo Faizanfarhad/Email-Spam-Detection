@@ -9,7 +9,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split 
 import pickle
 
-
+nltk.download('punkt_tab')
+nltk.download('stopwords')
+nltk.download('wordnet')
 df = pd.read_csv('/home/faizan/Documents/email spam-detaction/spam_ham_dataset.csv')
 df = df.drop(['Unnamed: 0', 'label_num'],axis=1)
 df['label'] = df['label'].str.contains('spam').astype(int)
