@@ -16,12 +16,8 @@ cd Email-Spam-Detection
  ```bash
 pip install uv
  ``` 
-3. Install dependencies using **Uv**
-```bash
-uv install 
-```
 
-5. Run file using  uv
+3. Run file using  uv
 ```bash
 uv run app.py
 ``` 
