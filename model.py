@@ -138,14 +138,3 @@ if __name__ == '__main__':
         
 
 
-'''
-            spam_text2 =  "From:To:REQUEST A DEMOQdomain@domain-name.comSubject:Your emailApple Facetime Information DisclosureNational Security DepartmentA vulnerability has been identified in the Apple Facetime mobile applications that allow an attacker to record calls and videos from your mobile device without your knowledge.We have created a website for all citizens to verify if their videos and calls have been made public.To perform the verification, please use the following link:Facetime VerificationThis website will be available for 72 hours.National Security Department"
-            label,prob = custom_test(spam_text)
-            label2,prob2 = custom_test(spam_text2)
-
-            ham_text = "Hi GHOST,Get ready to tune into Google I/O, where you can explore the latest innovations from Google! Join us online May 20-21 for live streamed keynotes and sessions covering what’s new in AI, Android, web, cloud, and more."
-            ham_text1 = "Hello Faizan,Represent Internsha,at Chanderprabhu Jain(CPJ) College Nerala,Del,Join India's leading Student Partner Progr,We're inviting you to participate in our student program that offers earning potential up to ₹7 lakhs while gaining valuable career experience.Program highlights: Participants hav,opportunities to win rewards including an iPhone 14, cash prizes up to ₹10,000, Internshala merchandise,and complimentary training courses.Skill development: Gain practical experience in leadership, professional communication, an,networking through 15+ online activities.Inclusive opportunity: Available to all students regardless of college, academic stream, or educational background.Deadline: The application window closes tomorrow."
-            ham_label,ham_prob = custom_test(ham_text)
-            ham_label1,ham_prob1 = custom_test(ham_text1)
-
-'''
