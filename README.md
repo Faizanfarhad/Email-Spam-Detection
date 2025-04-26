@@ -30,3 +30,8 @@ uv run app.py
  * Press Ctrl + v  for pasting the message
  * then press Submit button for result
   ```
+5. How to Clear?
+   ```
+   press ctrl+l  for clearing all message at once
+
+   ```
