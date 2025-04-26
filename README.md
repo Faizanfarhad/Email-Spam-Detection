@@ -26,7 +26,7 @@ uv run app.py
 4. How can i enter message?
   ```
  * Copy  the message in your clipboard
- * one time press on the Red color rectangle area
+ * one time press using mouse on the Red color rectangle area
  * Press Ctrl + v  for pasting the message
  * then press Submit button for result
   ```
