@@ -5,7 +5,7 @@ It detects spam messages based on their content using TF-IDF vectorization and a
 
 # Accuracy
 
-It has Accuracy of 95 percent 
+It has Accuracy of 95% 
 
 ## How to Run
 
