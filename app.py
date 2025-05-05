@@ -1,19 +1,17 @@
-import pygame
+import pygame 
 import pyperclip 
 import sys
 import os
 import pickle
-import time
+from gtts import gTTS
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import model
 
-# Load model
 with open("my_model.pkl", "rb") as f:
     w, b = pickle.load(f)
 
-# Load vectorizer
 with open("my_vectorizer.pkl", "rb") as f:
     tfidf_vectorizer = pickle.load(f)
 
@@ -21,7 +19,7 @@ with open("my_vectorizer.pkl", "rb") as f:
 
 pygame.init()
 screen = pygame.display.set_mode((1100,650))
-background  = pygame.image.load('/home/faizan/Documents/email spam-detaction/gui  interface/mike-yukhtenko-wfh8dDlNFOk-unsplash.jpg')
+# background  = pygame.image.load('/home/faizan/Documents/email spam-detaction/gui  interface/mike-yukhtenko-wfh8dDlNFOk-unsplash.jpg')
 Click = pygame.time.Clock()
 font = pygame.font.Font(None,30)
 user_text = ''
@@ -38,7 +36,7 @@ latest_prediction_surface = None
 latest_prediction_area = None
 
 while running:
-    screen.blit(background,(0,0))
+    # screen.blit(background,(0,0))
     screen.fill("black")
     text_surface = font.render(user_text,True,(255,0,0))
     input_rect = pygame.Rect(250, 50, 600, 100)
@@ -63,7 +61,15 @@ while running:
                 result_text_surface = font.render(f'Prediction : {pred[0]}',True,(255, 0, 0))
                 result_text_surface_area = result_text_surface.get_rect(topleft=(500, 400))
                 latest_prediction_surface = font.render(f'Prediction : {pred[0]}', True, (255, 0, 0))
+                
+                if latest_prediction_surface:
+                    tts = gTTS(f'output is {pred[0]}', lang='en')
+                    tts.save('output.mp3')
+                    sound = pygame.mixer.Sound('output.mp3')
+                    sound.play()
                 latest_prediction_area = latest_prediction_surface.get_rect(topleft=(500, 400))
+                
+                
                     
                     
         if event.type == pygame.KEYDOWN:
@@ -79,11 +85,18 @@ while running:
                 user_text = user_text[:-1] 
             else:
                 user_text += event.unicode
-
+                    
                 
+    
+    
     if latest_prediction_surface:
         screen.blit(latest_prediction_surface, latest_prediction_area) 
-
+    
+    inform_text_surface = font.render(f'Message Area',True,(255,0,0))
+    inform_text_surface_area = inform_text_surface.get_rect(topleft=(400 ,10))
+    screen.blit(inform_text_surface,inform_text_surface_area)
+    
+    
     button_rect = pygame.Rect(buttonX, buttonY, button_width, button_height)
     pygame.draw.rect(screen,(0, 0, 0),button_rect)
     screen.blit(text_surface1, (buttonX + 10, buttonY + 10))
