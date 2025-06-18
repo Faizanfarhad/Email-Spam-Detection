@@ -14,15 +14,13 @@ It has Accuracy of 95%
 git clone https://github.com/Faizanfarhad/Email-Spam-Detection.git
 cd Email-Spam-Detection
 ```
-2. Download uv using 
- ```bash
-pip install uv
- ``` 
-
-3. Run file using  uv
+2. Dashboard
 ```bash
-uv run app.py
+
+https://faizanfarhad-email-spam-detection-dashboard-mpewti.streamlit.app/
+
 ```
+ 
 4. How can i enter message?
   ```
  * Copy  the message in your clipboard
