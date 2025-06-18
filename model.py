@@ -9,9 +9,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split 
 import pickle
 
-nltk.download('punkt_tab')
-nltk.download('stopwords')
-nltk.download('wordnet')
+''' Uncomment down three lines if you have not downloaded this nltk modules '''
+# nltk.download('punkt_tab')
+# nltk.download('stopwords')
+# nltk.download('wordnet')
 df = pd.read_csv('spam_ham_dataset.csv')
 df = df.drop(['Unnamed: 0', 'label_num'],axis=1)
 df['label'] = df['label'].str.contains('spam').astype(int)
@@ -62,6 +63,7 @@ def sigmoid(z):
     return 1 / (1 + np.exp(-z))
 
 def logistic_regression(x,w,b):
+    # x = vectorized input  , w = updated weights , b = updated bias
     z = np.dot(x,w) + b
     return sigmoid(z)
 
