@@ -27,7 +27,7 @@ if user_text is not None:
         margin-left:220px;
         margin-down:40px;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 200px;
+        font-size: 20px;
         font-color: red;
     }
     
