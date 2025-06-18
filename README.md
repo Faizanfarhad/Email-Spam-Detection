@@ -14,12 +14,10 @@ It has Accuracy of 95%
 git clone https://github.com/Faizanfarhad/Email-Spam-Detection.git
 cd Email-Spam-Detection
 ```
-2. Dashboard
-```bash
-https://faizanfarhad-email-spam-detection-dashboard-mpewti.streamlit.app/
-```
  
-4. How can i enter message?
+2. How can i enter message?
   ```
  * Just enter the email message in given textfield and press submit
 ```
+
+3️⃣ [🚀 Check out my Email Spam Detection App](https://faizanfarhad-email-spam-detection-dashboard-mpewti.streamlit.app/)
