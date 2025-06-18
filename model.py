@@ -10,9 +10,9 @@ from sklearn.model_selection import train_test_split
 import pickle
 
 ''' Uncomment down three lines if you have not downloaded this nltk modules '''
-# nltk.download('punkt_tab')
-# nltk.download('stopwords')
-# nltk.download('wordnet')
+nltk.download('punkt_tab')
+nltk.download('stopwords')
+nltk.download('wordnet')
 df = pd.read_csv('spam_ham_dataset.csv')
 df = df.drop(['Unnamed: 0', 'label_num'],axis=1)
 df['label'] = df['label'].str.contains('spam').astype(int)
