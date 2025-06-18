@@ -5,7 +5,7 @@ It detects spam messages based on their content using TF-IDF vectorization and a
 
 # Accuracy
 
-It has Accuracy of 95% 
+##It has Accuracy of 95% 
 
 ## How to Run
 
@@ -16,20 +16,10 @@ cd Email-Spam-Detection
 ```
 2. Dashboard
 ```bash
-
 https://faizanfarhad-email-spam-detection-dashboard-mpewti.streamlit.app/
-
 ```
  
 4. How can i enter message?
   ```
- * Copy  the message in your clipboard
- * one time press using mouse on the Red color rectangle area
- * Press Ctrl + v  for pasting the message
- * then press Submit button for result
-  ```
-5. How to Clear?
-   ```
-   press ctrl+l  for clearing all message at once
-
-   ```
+ * Just enter the email message in given textfield and press submit
+```
