@@ -4,10 +4,10 @@ A simple spam detection model built from scratch using logistic regression (litt
 It detects spam messages based on their content using TF-IDF vectorization and a custom ML model.
 
 # Scores
-  Accuracy Score : 0.9526570048309179
-  Precision Score  : 0.9265734265734266
-  Recall Score : 0.9044368600682594
-  F1 Score  : 0.9153713298791019
+  * Accuracy Score : 0.9526570048309179
+  * Precision Score  : 0.9265734265734266
+  * Recall Score : 0.9044368600682594
+  * F1 Score  : 0.9153713298791019
 
 ## How to Run
 
