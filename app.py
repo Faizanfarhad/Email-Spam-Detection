@@ -81,3 +81,10 @@ if user_text is not None:
                 colors=['red','green']
                 )
         st.pyplot(fig1)
+        st.write()
+        st.write()
+        st.header('📊 Model Scores')
+        st.write("🎯 Accuracy Score : 0.9526570048309179 (95%) ")
+        st.write("🔍 Precision Score  : 0.9265734265734266 (92%) ")
+        st.write("📊 Recall Score : 0.9044368600682594 (90%) ")
+        st.write("⚖️ F1 Score  : 0.9153713298791019 (91%) ")

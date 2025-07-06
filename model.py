@@ -6,7 +6,11 @@ from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 import matplotlib.pyplot as plt
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.model_selection import train_test_split 
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import f1_score
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
+from sklearn.metrics import accuracy_score
 import pickle
 
 ''' Uncomment down three lines if you have not downloaded this nltk modules '''
@@ -58,7 +62,6 @@ y_test = np.array(y_test)
 y_train = y_train.reshape(-1,1)
 y_test = y_test.reshape(-1,1)
 
-
 def sigmoid(z):
     return 1 / (1 + np.exp(-z))
 
@@ -80,10 +83,10 @@ def train(X:pd.DataFrame,y:pd.DataFrame,epoc=1500,learning_rate=0.01, batch_size
     w = np.zeros((n,1))
     b = 0
     for i in range(epoc):
-        incides = np.arange(m)
-        np.random.shuffle(incides)
-        X = X[incides]
-        y = y[incides]
+        indicies = np.arange(m)
+        np.random.shuffle(indicies)
+        X = X[indicies]
+        y = y[indicies]
         for i in range(0,m,batch_size):
             x_batch = X[i:i + batch_size]
             y_batch = y[i:i + batch_size].reshape(-1,1)
@@ -119,15 +122,25 @@ if __name__ == '__main__':
     with open("my_vectorizer.pkl", "wb") as f:
         pickle.dump(tfidf_vectorizer, f)
 
+    ''' precision = true_positive / true_positive + false positive  '''
 
-
-    predictions = logistic_regression(x_test,w,b)
-    pred = ['Spam' if pred > 0.5 else 'ham' for pred in predictions]
+    y_pred_prob = logistic_regression(x_test,w,b)
+    y_pred = (y_pred_prob > 0.5).astype(int)
+    pred = ['Spam' if pred > 0.5 else 'ham' for pred in y_pred_prob]
     y_actual = ['Spam' if i == 1 else 'ham' for i in y_train]
-    # print(pred[1:40])
-    final_pred = (predictions > 0.5).astype(int)
+    
+    final_pred = (y_pred > 0.5).astype(int)
     accuracy = np.mean(final_pred == y_test) * 100
-    # print(f"Accuracy: {accuracy:.2f}%")
+    
+    print(f"y_test shape: {y_test.shape}")
+    print(f"y_pred shape: {y_pred.shape}")
+    print(f"y_train shape: {y_train.shape}") 
+    
+    accuracy = accuracy_score(y_true=y_test,y_pred=y_pred)
+    precision = precision_score(y_true=y_test,y_pred=y_pred)
+    recall = recall_score(y_true=y_test,y_pred=y_pred)
+    f1 = f1_score(y_true=y_test,y_pred=y_pred)
+    
     def custom_test(text):
         cleaned_text = preprocessed_text(text)
         vectorized = tfidf_vectorizer.transform([cleaned_text]).toarray()
@@ -137,7 +150,11 @@ if __name__ == '__main__':
         return label,prob
 
     text_label,text_prob = custom_test(text)
-    print(f'accuracy : {accuracy}')
+    print(f"x_train shape {x_train.shape},'\n',x_test shape {x_test.shape} ,'\n',y_train shape {y_train.shape}','\n',y_test shape {y_test.shape}")
+    print(f'Accuracy Score : {accuracy}')
+    print(f'Precision Score  : {precision}')
+    print(f'Recall Score : {recall}')
+    print(f'F1 Score  : {f1}')
     print(f"Prediction: {text_label}, Probability: {text_prob}")
         
 
