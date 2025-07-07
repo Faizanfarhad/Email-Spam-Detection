@@ -22,4 +22,4 @@ cd Email-Spam-Detection
  * Just enter the email message in given textfield and press submit
 ```
 
-3️⃣ [🚀 Check out my Email Spam Detection App](https://faizanfarhad-email-spam-detection-app-0xy5om.streamlit.app/)
+3️⃣ [🚀 Check out my Email Spam Detection App](https://faizanfarhad-email-spam-detection-app-anzued.streamlit.app/)
