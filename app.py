@@ -53,38 +53,47 @@ if user_text is not None:
     st.write("\n\nEntered Email Text : ",user_text)
     st.write('')
     submit = st.button("Submit",property)
-    if submit:
+    if submit and user_text != '':
         
         st.write('✅ Submitted')
-        cleaned_text = model.preprocessed_text(user_text)
-        vectorized_input = tfidf_vectorizer.transform([cleaned_text]).toarray()
-        prediction = model.logistic_regression(vectorized_input,w=w,b=b)
-        pred = ['Spam' if prediction > 0.5 else 'Not Spam']
-        st.write("📋 Prediction Results : ", prediction)
-        st.write('Result : ',pred[0])
+        try:
+            cleaned_text = model.preprocessed_text(user_text)
 
-        spam_percentage = np.mean(prediction) * 100
-        not_spam_percentage = (1 - np.mean(prediction)) * 100
+            vectorized_input = tfidf_vectorizer.transform([cleaned_text]).toarray()
+
+            prediction = model.logistic_regression(vectorized_input,w=w,b=b)
+
+            pred = ['Spam' if prediction > 0.5 else 'Not Spam']
+
+            color = 'red' if pred[0] == 'Spam' else 'green'
+            result = pred[0]
+            pred_result ='📋 Prediction Results :'
+            st.markdown(f' <span style="color:{color}; font-size: 40px; font-weight:bold;">{pred_result}{result}</span>', unsafe_allow_html=True)
+            
+            spam_percentage = np.mean(prediction) * 100
+
+            not_spam_percentage = (1 - np.mean(prediction)) * 100
         
-        
-        # prediction_series = pd.Series(prediction)
-        # labels = prediction_series.apply(lambda x: 'Spam' if x > 0.5 else 'Not Spam')
-        # value_counts = labels.value_counts()
-        
+
         # Visualization
         # Pie chart
-        st.subheader("🔍 Real vs Spam Distribution")
-        fig1, ax1 = plt.subplots()
-        ax1.pie([spam_percentage, not_spam_percentage],
-                labels=['Spam','Not Spam'],
-                autopct='%1.1f%%',
-                colors=['red','green']
-                )
-        st.pyplot(fig1)
-        st.write()
-        st.write()
-        st.header('📊 Model Scores')
-        st.write("🎯 Accuracy Score : 0.9526570048309179 (95%) ")
-        st.write("🔍 Precision Score  : 0.9265734265734266 (92%) ")
-        st.write("📊 Recall Score : 0.9044368600682594 (90%) ")
-        st.write("⚖️ F1 Score  : 0.9153713298791019 (91%) ")
+            st.subheader("🔍 Real vs Spam Distribution")
+            fig1, ax1 = plt.subplots()
+            ax1.pie([spam_percentage, not_spam_percentage],
+                    labels=['Spam','Not Spam'],
+                    autopct='%1.1f%%',
+                    colors=['red','green']
+                    )
+            st.pyplot(fig1)
+            st.write()
+            st.write()
+            st.header('📊 Model Scores')
+            st.subheader("🎯 Accuracy Score : 0.9526570048309179 (95%) ")
+            st.subheader("🔍 Precision Score  : 0.9265734265734266 (92%) ")
+            st.subheader("📊 Recall Score : 0.9044368600682594 (90%) ")
+            st.subheader("⚖️ F1 Score  : 0.9153713298791019 (91%) ")
+        except Exception as e:
+            st.error(f'Something went wrong {e}')
+if submit and user_text.strip() == "":
+    st.warning("⚠️ Please enter some text before submitting.")
+    
