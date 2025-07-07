@@ -57,7 +57,7 @@ if user_text is not None:
         
         st.write('✅ Submitted')
         cleaned_text = model.preprocessed_text(user_text)
-        vectorized_input = model.tfidf_vectorizer.transform([cleaned_text]).toarray()
+        vectorized_input = tfidf_vectorizer.transform([cleaned_text]).toarray()
         prediction = model.logistic_regression(vectorized_input,w=w,b=b)
         pred = ['Spam' if prediction > 0.5 else 'Not Spam']
         st.write("📋 Prediction Results : ", prediction)
